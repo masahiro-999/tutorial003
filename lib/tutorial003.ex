@@ -4,20 +4,20 @@ defmodule Tutorial003 do
   end
 
   def calc_pi_with_enum() do
-    hit = 100..100_000_000
+    hit = 1..10_000_000
     |> Enum.map(&gen_rand(&1))
     |> Enum.map(fn {x,y} -> x*x+y*y <1 end)
     |> Enum.count(fn bool -> bool end)
-    hit / 100_000_000 * 4
+    hit / 10_000_000 * 4
   end
 
   def calc_pi_with_flow() do
-    hit = 1..100_000_000
+    hit = 1..10_000_000
     |> Flow.from_enumerable()
     |> Flow.map(&gen_rand(&1))
     |> Flow.map(fn {x,y} -> x*x+y*y <1 end)
     |> Enum.count(fn bool -> bool end)
-    hit / 100_000_000 * 4
+    hit / 10_000_000 * 4
   end
 
   def main() do
